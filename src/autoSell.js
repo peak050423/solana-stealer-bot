@@ -6,8 +6,6 @@ dotenv.config();
 
 const RPC_ENDPOINT = process.env.RPC_ENDPOINT;
 const WALLET_PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY;
-const WALLET_PUBLIC_KEY = process.env.WALLET_PUBLIC_KEY;
-const INITIAL_BUY = parseInt(process.env.INITIAL_BUY);
 const web3Connection = new Connection(RPC_ENDPOINT, "confirmed");
 const signerKeyPair = Keypair.fromSecretKey(bs58.decode(WALLET_PRIVATE_KEY));
 
@@ -18,10 +16,10 @@ export async function autoSell(tokenMintAddress) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      publicKey: signerKeyPair.publicKey.toBase58(), // Your wallet public key
-      action: "sell", // "buy" or "sell"
-      mint: tokenMintAddress, // contract address of the token you want to trade
-      denominatedInSol: "true", // "true" if amount is amount of SOL, "false" if amount is number of tokens
+      publicKey: signerKeyPair.publicKey.toBase58(), 
+      action: "sell", 
+      mint: tokenMintAddress, 
+      denominatedInSol: "true", 
       amount: "100%",
       slippage: 50,
       priorityFee: 0.0005,
@@ -29,7 +27,6 @@ export async function autoSell(tokenMintAddress) {
     }),
   });
   if (response.status === 200) {
-    // successfully generated transaction
     const data = await response.arrayBuffer();
     const tx = VersionedTransaction.deserialize(new Uint8Array(data));
     const signerKeyPair = Keypair.fromSecretKey(

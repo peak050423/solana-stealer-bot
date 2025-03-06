@@ -26,15 +26,17 @@ The Auto-Launcher & Metadata Stealer Bot is an automated trading bot designed fo
 ## Key Environment Variables in Your `.env` File:
 
 ```bash
-    RPC_ENDPOINT=REPLACE_YOUR_RPC_URL_HERE                      # Solana RPC endpoint - replace with your actual RPC URL
-    WS_ENDPOINT=REPLACE_YOUR_WS_URL_HERE                        # WebSocket endpoint for real-time monitoring - replace with your actual WebSocket URL
-    WALLET_PUBLIC_KEY=REPLACE_YOUR_WALLET_PUBLIC_KEY_HERE       # Your Solana wallet public key - replace with your actual public key
-    WALLET_PRIVATE_KEY=REPLACE_YOUR_WALLET_PRIVATE_KEY_HERE     # Your Solana wallet private key - replace with your actual private key
-    RETRY_ATTEMPTS=2                                            # Number of retry attempts for failed operations
-    RETRY_DELAY=5000                                            # Delay between retry attempts in milliseconds
-    COMPARE_AMOUNT=2                                            # Tokens with 2,000 trading volume within the first few minutes
-    DELAY_TIME=2                                                # Time delay between token launch and get volume (in mins)
-    COMPARE_VOLUME_AMOUNT=2000                                  # Minimum volume amount for comparison to decide whether to engage with a token
+   RPC_ENDPOINT=REPLACE_YOUR_RPC_URL_HERE                      # Solana RPC endpoint - replace with your actual RPC URL
+   WS_ENDPOINT=REPLACE_YOUR_WS_URL_HERE                        # WebSocket endpoint for real-time monitoring - replace with your actual WebSocket URL
+   WALLET_PUBLIC_KEY=REPLACE_YOUR_WALLET_PUBLIC_KEY_HERE       # Your Solana wallet public key - replace with your actual public key
+   WALLET_PRIVATE_KEY=REPLACE_YOUR_WALLET_PRIVATE_KEY_HERE     # Your Solana wallet private key - replace with your actual private key
+   RETRY_ATTEMPTS=2                                            # Number of retry attempts for failed operations
+   RETRY_DELAY=5000                                            # Delay between retry attempts in milliseconds
+   COMPARE_AMOUNT=3                                            # Compare tokens with an amount greater than 3 SOL
+   DELAY_TIME=30                                               # Time delay between token launch and get volume (in seconds)
+   COMPARE_VOLUME_AMOUNT=200000000                             # Minimum volume amount for comparison to decide whether to engage with a token
+   DEV_BUY=0.6                                                 # Subsequent token purchases will be made with 0.6 SOL each
+   AUTO_SELL=12                                                # The token will automatically be sold 12 seconds after the purchase
 ```
 
 ## Install Project Dependencies
