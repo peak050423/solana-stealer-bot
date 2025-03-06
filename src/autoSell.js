@@ -36,7 +36,7 @@ export async function autoSell(tokenMintAddress) {
     const signature = await web3Connection.sendTransaction(tx);
     console.log("Auto-sell Transaction: https://solscan.io/tx/" + signature);
   } else {
-    console.log(response.statusText); // log error
+    console.log(response.statusText); 
   }
 }
 
