@@ -69,5 +69,3 @@ export async function launchToken(tokenInfo) {
         console.log(response.statusText); 
     }
 }
-
-sendLocalCreateTx();
