@@ -56,7 +56,7 @@ async function handleMessage(message) {
     checkVolumeAfterDelay(DELAY_TIME, newTokenInfo);
   }
 }
-let tokens = [];
+
 async function checkVolumeAfterDelay(delay, tokenInfo) {
   setTimeout(async () => {
     const totalVolume = await getTokenVolume(tokenInfo.mint);
@@ -68,8 +68,7 @@ async function checkVolumeAfterDelay(delay, tokenInfo) {
             
             const data = await response.json();
 
-            if (data && tokens.length == 0) {
-                tokens.push(data)
+            if (data) {
                 createToken(data, tokenInfo.mint);
             }
         } catch (error) {
